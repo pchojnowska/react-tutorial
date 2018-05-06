@@ -86,6 +86,9 @@ class Game extends React.Component {
     }
 
     render() {
+        const currentStyle = {
+            fontWeight: 'bold'
+        };
         const history = this.state.history;
         const current = history[this.state.stepNumber];
         const winner = calculateWinner(current.squares);
@@ -96,7 +99,7 @@ class Game extends React.Component {
                'Go to game start';
            return (
                <li key={move}>
-                   <button onClick={() => this.jumpTo(move)}>{desc}</button>
+                   <button style={move===this.state.stepNumber ? currentStyle : {}} onClick={() => this.jumpTo(move)}>{desc}</button>
                </li>
            )
         });
